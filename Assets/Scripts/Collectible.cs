@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Threading;
 using UnityEngine;
 
-public class Rotater : MonoBehaviour
+public class Collectible : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,6 +13,9 @@ public class Rotater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        this.moveRotate();
+    }
+    public void moveRotate() {
         System.Random r = new System.Random();
         int num = r.Next(0, 90);
         print(num);

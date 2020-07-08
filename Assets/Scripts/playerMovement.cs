@@ -39,6 +39,10 @@ public class playerMovement : MonoBehaviour
             print(score);
             setScoreText();
         }
+        if (other.gameObject.CompareTag("grow")) {
+            other.gameObject.SetActive(false);
+            rb.transform.localScale = new Vector3(5f, 5f, 5f);
+        }
     }
 
     void setScoreText() {
