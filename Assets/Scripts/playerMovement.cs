@@ -33,15 +33,34 @@ public class playerMovement : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other) {
-        if (other.gameObject.CompareTag("pickUp")) {
+        if (other.gameObject.CompareTag("pickUp"))
+        {
             other.gameObject.SetActive(false);
             score += 1;
-            print(score);
             setScoreText();
         }
-        if (other.gameObject.CompareTag("grow")) {
+        else if (other.gameObject.CompareTag("grow"))
+        {
             other.gameObject.SetActive(false);
             rb.transform.localScale = new Vector3(5f, 5f, 5f);
+        }
+        else if (other.gameObject.CompareTag("losePoints"))
+        {
+            other.gameObject.SetActive(false);
+            score -= 5;
+            if (score < 0)
+            {
+                score = 0;
+            }
+            setScoreText();
+        }
+        else if (other.gameObject.CompareTag("enemy")) {
+            velocity -= 1f;
+            transform.position = new Vector3(0, 1, 0);
+            if (velocity <= 0f) {
+                velocity = 0f;
+                scoreText.text = "Game Over!";
+            }
         }
     }
 
