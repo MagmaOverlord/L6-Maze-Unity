@@ -17,5 +17,8 @@ public class growCapsule : Collectible
         this.moveRotate(); 
     }
 
+    public override void moveRotate() {
+        transform.Rotate(new Vector3 (20, 30, 40) * Time.deltaTime);
+    }
     
 }

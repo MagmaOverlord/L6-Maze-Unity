@@ -15,7 +15,7 @@ public class Collectible : MonoBehaviour
     {
         this.moveRotate();
     }
-    public void moveRotate() {
+    public virtual void moveRotate() {
         System.Random r = new System.Random();
         int num = r.Next(0, 90);
         print(num);
